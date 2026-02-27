@@ -69,7 +69,7 @@ export default function JobsPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
           <div className="mb-8">
             <h1 className="text-2xl font-extrabold text-gray-900">My Jobs</h1>
-            <p className="text-gray-500 mt-1">Manage your current placements and applications</p>
+            <p className="text-gray-700 mt-1">Manage your current placements and applications</p>
           </div>
 
           {/* Active jobs */}
@@ -88,13 +88,13 @@ export default function JobsPage() {
                       <div className="flex items-start justify-between">
                         <div>
                           <h3 className="font-bold text-gray-900">{job.employer}</h3>
-                          <p className="text-sm text-gray-500">{job.role}</p>
+                          <p className="text-sm text-gray-700">{job.role}</p>
                         </div>
-                        <span className="bg-emerald-100 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full">
+                        <span className="bg-orange-100 text-orange-800 text-xs font-semibold px-3 py-1 rounded-full">
                           {job.status}
                         </span>
                       </div>
-                      <div className="flex items-center gap-1 mt-1.5 text-sm text-gray-500">
+                      <div className="flex items-center gap-1 mt-1.5 text-sm text-gray-700">
                         <MapPin className="w-3.5 h-3.5" />
                         {job.address}
                       </div>
@@ -109,14 +109,14 @@ export default function JobsPage() {
                       { icon: Star, label: "Rating", value: `${job.rating} ★` },
                     ].map((d) => (
                       <div key={d.label} className="bg-gray-50 rounded-xl p-3">
-                        <div className="text-xs text-gray-400 mb-0.5">{d.label}</div>
+                        <div className="text-xs text-gray-600 mb-0.5">{d.label}</div>
                         <div className="text-sm font-semibold text-gray-800">{d.value}</div>
                       </div>
                     ))}
                   </div>
 
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400">Started {job.started}</span>
+                    <span className="text-gray-600">Started {job.started}</span>
                     <div className="flex gap-2">
                       <Link
                         href="/dashboard/messages"
@@ -153,7 +153,7 @@ export default function JobsPage() {
                       <div className="flex items-start justify-between">
                         <div>
                           <h3 className="font-semibold text-gray-900">{app.employer}</h3>
-                          <p className="text-sm text-gray-500">{app.role} · {app.address}</p>
+                          <p className="text-sm text-gray-700">{app.role} · {app.address}</p>
                         </div>
                         <span
                           className={`text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1 ${
@@ -170,7 +170,7 @@ export default function JobsPage() {
                           {app.status === "pending" ? "Pending" : "Not Selected"}
                         </span>
                       </div>
-                      <div className="flex flex-wrap gap-3 mt-2 text-xs text-gray-500">
+                      <div className="flex flex-wrap gap-3 mt-2 text-xs text-gray-700">
                         <span>{app.daysPerWeek} · {app.hours}</span>
                         <span className="font-semibold text-gray-700">{app.salary}</span>
                         <span>Applied {app.appliedDate}</span>
@@ -197,7 +197,7 @@ export default function JobsPage() {
                       </div>
                       <div>
                         <div className="font-semibold text-gray-900">{h.employer}</div>
-                        <div className="text-sm text-gray-500">{h.role} · {h.period}</div>
+                        <div className="text-sm text-gray-700">{h.role} · {h.period}</div>
                       </div>
                     </div>
                     <div className="text-right">
@@ -205,7 +205,7 @@ export default function JobsPage() {
                         <Star className="w-3.5 h-3.5 star-filled fill-current" />
                         <span className="font-bold text-gray-900">{h.rating}</span>
                       </div>
-                      <div className="text-sm text-gray-500">{h.amount}</div>
+                      <div className="text-sm text-gray-700">{h.amount}</div>
                     </div>
                   </div>
                 ))}

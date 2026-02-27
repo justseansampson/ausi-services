@@ -2,7 +2,7 @@ import DashboardNav from "@/components/DashboardNav";
 import { TrendingUp, Download, DollarSign, Clock, CheckCircle, AlertCircle } from "lucide-react";
 
 const summaryStats = [
-  { label: "Total Paid (2025)", value: "R9,600", icon: CheckCircle, color: "text-emerald-600", bg: "bg-emerald-50" },
+  { label: "Total Paid (2025)", value: "R9,600", icon: CheckCircle, color: "text-orange-700", bg: "bg-orange-50" },
   { label: "Pending Payment", value: "R3,200", icon: AlertCircle, color: "text-yellow-600", bg: "bg-yellow-50" },
   { label: "Avg Monthly Spend", value: "R3,200", icon: DollarSign, color: "text-blue-600", bg: "bg-blue-50" },
   { label: "Total Hours Paid", value: "192h", icon: Clock, color: "text-violet-600", bg: "bg-violet-50" },
@@ -38,7 +38,7 @@ export default function FinancialsPage() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-2xl font-extrabold text-gray-900">Financials</h1>
-              <p className="text-gray-500 mt-1">Track payments and manage payslips</p>
+              <p className="text-gray-700 mt-1">Track payments and manage payslips</p>
             </div>
             <button className="border border-gray-200 bg-white text-gray-700 text-sm font-semibold px-4 py-2 rounded-xl flex items-center gap-2 hover:bg-gray-50 transition-colors">
               <Download className="w-4 h-4" />
@@ -56,7 +56,7 @@ export default function FinancialsPage() {
                     <Icon className={`w-5 h-5 ${s.color}`} />
                   </div>
                   <div className="text-2xl font-extrabold text-gray-900">{s.value}</div>
-                  <div className="text-sm text-gray-500 mt-0.5">{s.label}</div>
+                  <div className="text-sm text-gray-700 mt-0.5">{s.label}</div>
                 </div>
               );
             })}
@@ -67,7 +67,7 @@ export default function FinancialsPage() {
             <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="font-bold text-gray-900">Monthly Spending Breakdown</h2>
-                <div className="flex items-center gap-1 text-xs text-emerald-600 font-semibold">
+                <div className="flex items-center gap-1 text-xs text-orange-700 font-semibold">
                   <TrendingUp className="w-3.5 h-3.5" />
                   Stable
                 </div>
@@ -86,12 +86,12 @@ export default function FinancialsPage() {
                             style={{ height: `${leratoH}%` }}
                           />
                           <div
-                            className="w-full bg-emerald-500"
+                            className="w-full bg-orange-500"
                             style={{ height: `${thandiH}%` }}
                           />
                         </div>
                       </div>
-                      <span className="text-xs text-gray-400">{d.month}</span>
+                      <span className="text-xs text-gray-600">{d.month}</span>
                     </div>
                   );
                 })}
@@ -99,12 +99,12 @@ export default function FinancialsPage() {
 
               <div className="flex items-center gap-6 pt-4 border-t border-gray-50">
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-sm bg-emerald-500" />
-                  <span className="text-xs text-gray-500">Thandi Dlamini</span>
+                  <div className="w-3 h-3 rounded-sm bg-orange-500" />
+                  <span className="text-xs text-gray-700">Thandi Dlamini</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-sm bg-blue-400" />
-                  <span className="text-xs text-gray-500">Lerato Sithole</span>
+                  <span className="text-xs text-gray-700">Lerato Sithole</span>
                 </div>
               </div>
             </div>
@@ -114,7 +114,7 @@ export default function FinancialsPage() {
               <h2 className="font-bold text-gray-900 mb-4">March 2025</h2>
               <div className="space-y-4">
                 {[
-                  { helper: "Thandi", hours: 40, rate: 100, color: "bg-emerald-500" },
+                  { helper: "Thandi", hours: 40, rate: 100, color: "bg-orange-500" },
                   { helper: "Lerato", hours: 28, rate: 80, color: "bg-blue-400" },
                 ].map((h) => {
                   const total = h.hours * h.rate;
@@ -128,7 +128,7 @@ export default function FinancialsPage() {
                       <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
                         <div className={`h-full ${h.color} rounded-full`} style={{ width: `${pct}%` }} />
                       </div>
-                      <div className="text-xs text-gray-400 mt-1">
+                      <div className="text-xs text-gray-600 mt-1">
                         {h.hours}h × R{h.rate}/hr
                       </div>
                     </div>
@@ -163,13 +163,13 @@ export default function FinancialsPage() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-50">
-                    <th className="text-left px-5 py-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Period</th>
-                    <th className="text-left px-5 py-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Helper</th>
-                    <th className="text-left px-5 py-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Hours</th>
-                    <th className="text-left px-5 py-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Rate</th>
-                    <th className="text-left px-5 py-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Amount</th>
-                    <th className="text-left px-5 py-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Date</th>
-                    <th className="text-left px-5 py-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Status</th>
+                    <th className="text-left px-5 py-3 text-xs font-semibold text-gray-600 uppercase tracking-wider">Period</th>
+                    <th className="text-left px-5 py-3 text-xs font-semibold text-gray-600 uppercase tracking-wider">Helper</th>
+                    <th className="text-left px-5 py-3 text-xs font-semibold text-gray-600 uppercase tracking-wider">Hours</th>
+                    <th className="text-left px-5 py-3 text-xs font-semibold text-gray-600 uppercase tracking-wider">Rate</th>
+                    <th className="text-left px-5 py-3 text-xs font-semibold text-gray-600 uppercase tracking-wider">Amount</th>
+                    <th className="text-left px-5 py-3 text-xs font-semibold text-gray-600 uppercase tracking-wider">Date</th>
+                    <th className="text-left px-5 py-3 text-xs font-semibold text-gray-600 uppercase tracking-wider">Status</th>
                     <th className="px-5 py-3" />
                   </tr>
                 </thead>
@@ -181,12 +181,12 @@ export default function FinancialsPage() {
                       <td className="px-5 py-4 text-sm text-gray-600">{row.hours}h</td>
                       <td className="px-5 py-4 text-sm text-gray-600">{row.rate}</td>
                       <td className="px-5 py-4 text-sm font-bold text-gray-900">{row.amount}</td>
-                      <td className="px-5 py-4 text-sm text-gray-500">{row.date}</td>
+                      <td className="px-5 py-4 text-sm text-gray-700">{row.date}</td>
                       <td className="px-5 py-4">
                         <span
                           className={`text-xs px-2.5 py-1 rounded-full font-semibold ${
                             row.status === "paid"
-                              ? "bg-emerald-100 text-emerald-700"
+                              ? "bg-orange-100 text-orange-800"
                               : "bg-yellow-100 text-yellow-700"
                           }`}
                         >
@@ -194,7 +194,7 @@ export default function FinancialsPage() {
                         </span>
                       </td>
                       <td className="px-5 py-4">
-                        <button className="text-xs text-gray-400 hover:text-gray-600 flex items-center gap-1">
+                        <button className="text-xs text-gray-600 hover:text-gray-600 flex items-center gap-1">
                           <Download className="w-3.5 h-3.5" />
                           Payslip
                         </button>

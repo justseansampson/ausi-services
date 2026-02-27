@@ -28,7 +28,7 @@ export default function ProfilePage() {
               onClick={() => setEditMode(!editMode)}
               className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-colors ${
                 editMode
-                  ? "bg-emerald-500 text-white"
+                  ? "bg-orange-500 text-white"
                   : "border border-gray-200 bg-white text-gray-700 hover:bg-gray-50"
               }`}
             >
@@ -62,14 +62,14 @@ export default function ProfilePage() {
                   )}
                 </div>
                 <h2 className="font-extrabold text-gray-900 text-xl">Jane Smith</h2>
-                <p className="text-gray-500 text-sm mt-1">Home Owner</p>
+                <p className="text-gray-700 text-sm mt-1">Home Owner</p>
                 <div className="flex items-center justify-center gap-1 mt-2">
-                  <MapPin className="w-4 h-4 text-gray-400" />
-                  <span className="text-sm text-gray-500">Sandton, Johannesburg</span>
+                  <MapPin className="w-4 h-4 text-gray-600" />
+                  <span className="text-sm text-gray-700">Sandton, Johannesburg</span>
                 </div>
                 <div className="flex items-center justify-center gap-1 mt-1">
-                  <Shield className="w-4 h-4 text-emerald-500" />
-                  <span className="text-sm text-emerald-600 font-medium">Verified Account</span>
+                  <Shield className="w-4 h-4 text-orange-600" />
+                  <span className="text-sm text-orange-700 font-medium">Verified Account</span>
                 </div>
               </div>
 
@@ -83,7 +83,7 @@ export default function ProfilePage() {
                   { label: "Tasks Created", value: "156" },
                 ].map((s) => (
                   <div key={s.label} className="flex justify-between text-sm">
-                    <span className="text-gray-500">{s.label}</span>
+                    <span className="text-gray-700">{s.label}</span>
                     <span className="font-semibold text-gray-900">{s.value}</span>
                   </div>
                 ))}
@@ -105,7 +105,7 @@ export default function ProfilePage() {
                     <p className="text-sm text-gray-600 leading-relaxed">&ldquo;{r.text}&rdquo;</p>
                     <div className="flex items-center gap-2 mt-2">
                       <span className="text-xs font-medium text-gray-700">{r.from}</span>
-                      <span className="text-xs text-gray-400">{r.time}</span>
+                      <span className="text-xs text-gray-600">{r.time}</span>
                     </div>
                   </div>
                 ))}
@@ -127,13 +127,13 @@ export default function ProfilePage() {
                     { label: "ID Number", value: "••••••••••••••" },
                   ].map((f) => (
                     <div key={f.label}>
-                      <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">
+                      <label className="block text-xs font-semibold text-gray-700 mb-1.5 uppercase tracking-wider">
                         {f.label}
                       </label>
                       {editMode ? (
                         <input
                           defaultValue={f.value}
-                          className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                          className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-600"
                         />
                       ) : (
                         <div className="text-sm text-gray-900 py-2.5 px-3 bg-gray-50 rounded-xl">{f.value}</div>
@@ -154,13 +154,13 @@ export default function ProfilePage() {
                     { label: "Suburb", value: "Sandton" },
                   ].map((f) => (
                     <div key={f.label}>
-                      <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">
+                      <label className="block text-xs font-semibold text-gray-700 mb-1.5 uppercase tracking-wider">
                         {f.label}
                       </label>
                       {editMode ? (
                         <input
                           defaultValue={f.value}
-                          className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                          className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-600"
                         />
                       ) : (
                         <div className="text-sm text-gray-900 py-2.5 px-3 bg-gray-50 rounded-xl">{f.value}</div>
@@ -169,7 +169,7 @@ export default function ProfilePage() {
                   ))}
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">
+                  <label className="block text-xs font-semibold text-gray-700 mb-1.5 uppercase tracking-wider">
                     Services Required
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -179,9 +179,9 @@ export default function ProfilePage() {
                         onClick={() => editMode && toggleService(s)}
                         className={`px-3 py-1.5 rounded-xl text-sm font-medium transition-colors border ${
                           selectedServices.includes(s)
-                            ? "bg-emerald-100 text-emerald-700 border-emerald-200"
-                            : "bg-gray-50 text-gray-500 border-gray-200"
-                        } ${editMode ? "cursor-pointer hover:border-emerald-300" : "cursor-default"}`}
+                            ? "bg-orange-100 text-orange-800 border-orange-200"
+                            : "bg-gray-50 text-gray-700 border-gray-200"
+                        } ${editMode ? "cursor-pointer hover:border-orange-300" : "cursor-default"}`}
                       >
                         {s}
                       </button>
@@ -194,14 +194,14 @@ export default function ProfilePage() {
               <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
                 <h3 className="font-bold text-gray-900 mb-5">Preferences & About</h3>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wider">
+                  <label className="block text-xs font-semibold text-gray-700 mb-1.5 uppercase tracking-wider">
                     About / Special Instructions
                   </label>
                   {editMode ? (
                     <textarea
                       rows={4}
                       defaultValue="I'm looking for a reliable, trustworthy helper who is great with kids and pets. Our home has 2 dogs. We prefer eco-friendly cleaning products."
-                      className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none"
+                      className="w-full px-3 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-600 resize-none"
                     />
                   ) : (
                     <p className="text-sm text-gray-700 bg-gray-50 px-3 py-2.5 rounded-xl leading-relaxed">

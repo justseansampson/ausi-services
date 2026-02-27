@@ -42,8 +42,9 @@ const helperData: Record<string, {
   },
 };
 
-export default function HelperProfilePage({ params }: { params: { id: string } }) {
-  const helper = helperData[params.id] ?? helperData["1"];
+export default async function HelperProfilePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const helper = helperData[id] ?? helperData["1"];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -60,12 +61,12 @@ export default function HelperProfilePage({ params }: { params: { id: string } }
                 <h1 className="text-3xl font-extrabold text-white">{helper.name}</h1>
                 {helper.verified && (
                   <div className="flex items-center gap-1 bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/30">
-                    <CheckCircle className="w-3.5 h-3.5 text-emerald-300" />
+                    <CheckCircle className="w-3.5 h-3.5 text-amber-300" />
                     Verified
                   </div>
                 )}
               </div>
-              <div className="flex flex-wrap items-center gap-4 text-white/80 text-sm mb-4">
+              <div className="flex flex-wrap items-center gap-4 text-white/95 text-sm mb-4">
                 <span className="flex items-center gap-1.5">
                   <MapPin className="w-4 h-4" />
                   {helper.location}
@@ -94,7 +95,7 @@ export default function HelperProfilePage({ params }: { params: { id: string } }
             <div className="flex flex-col gap-3 sm:items-end">
               <div className="text-white text-right">
                 <div className="text-3xl font-extrabold">{helper.rate}</div>
-                <div className="text-white/60 text-sm">per hour</div>
+                <div className="text-white/80 text-sm">per hour</div>
               </div>
             </div>
           </div>
@@ -106,7 +107,7 @@ export default function HelperProfilePage({ params }: { params: { id: string } }
             <div className="space-y-5">
               <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
                 <div className="text-2xl font-extrabold text-gray-900 mb-1">{helper.rate}</div>
-                <div className="text-sm text-gray-500 mb-4">per hour · {helper.availability}</div>
+                <div className="text-sm text-gray-700 mb-4">per hour · {helper.availability}</div>
                 <Link
                   href="/auth/register?role=owner"
                   className="w-full btn-primary text-white font-semibold py-3 rounded-xl text-sm text-center block mb-3"
@@ -120,7 +121,7 @@ export default function HelperProfilePage({ params }: { params: { id: string } }
                   <MessageSquare className="w-4 h-4" />
                   Send Message
                 </Link>
-                <button className="w-full flex items-center justify-center gap-2 text-gray-400 hover:text-red-500 py-2 mt-2 text-sm transition-colors">
+                <button className="w-full flex items-center justify-center gap-2 text-gray-600 hover:text-red-500 py-2 mt-2 text-sm transition-colors">
                   <Heart className="w-4 h-4" />
                   Save to Favourites
                 </button>
@@ -128,13 +129,13 @@ export default function HelperProfilePage({ params }: { params: { id: string } }
 
               <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
                 <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-emerald-500" />
+                  <Shield className="w-4 h-4 text-orange-600" />
                   Verified Profile
                 </h3>
                 <div className="space-y-2">
                   {["ID Verified", "Background Check", "References Checked", "Skills Assessment"].map((v) => (
                     <div key={v} className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                      <CheckCircle className="w-4 h-4 text-orange-600 flex-shrink-0" />
                       {v}
                     </div>
                   ))}
@@ -166,12 +167,12 @@ export default function HelperProfilePage({ params }: { params: { id: string } }
 
               <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
                 <h2 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Award className="w-5 h-5 text-emerald-500" />
+                  <Award className="w-5 h-5 text-orange-600" />
                   Skills & Specialisations
                 </h2>
                 <div className="flex flex-wrap gap-2">
                   {helper.skills.map((s) => (
-                    <span key={s} className="bg-emerald-50 text-emerald-700 text-sm px-3 py-1.5 rounded-xl font-medium border border-emerald-100">
+                    <span key={s} className="bg-orange-50 text-orange-800 text-sm px-3 py-1.5 rounded-xl font-medium border border-emerald-100">
                       {s}
                     </span>
                   ))}
@@ -188,7 +189,7 @@ export default function HelperProfilePage({ params }: { params: { id: string } }
                       ))}
                     </div>
                     <span className="font-bold text-gray-900">{helper.rating}</span>
-                    <span className="text-gray-400 text-sm">({helper.reviews})</span>
+                    <span className="text-gray-600 text-sm">({helper.reviews})</span>
                   </div>
                 </div>
                 <div className="space-y-5">
@@ -207,7 +208,7 @@ export default function HelperProfilePage({ params }: { params: { id: string } }
                               <Star key={ri} className="w-3.5 h-3.5 star-filled fill-current" />
                             ))}
                           </div>
-                          <span className="text-xs text-gray-400">{r.date}</span>
+                          <span className="text-xs text-gray-600">{r.date}</span>
                         </div>
                       </div>
                       <p className="text-sm text-gray-600 leading-relaxed">&ldquo;{r.text}&rdquo;</p>
