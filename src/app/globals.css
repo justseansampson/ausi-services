@@ -1,63 +1,109 @@
 @import "tailwindcss";
 
+/* ─── African Palette ──────────────────────────────────────────────────────
+   Inspired by Zimbabwean clay pots, Zulu beadwork, and the Sankofa design
+   system — warm terracotta, deep forest green, Kente gold, and earthy cream.
+   ────────────────────────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --clay:    #C4622D;   /* Terracotta / Zimbabwean clay   */
+  --forest:  #2D5A1B;  /* Deep forest green              */
+  --gold:    #D4940A;  /* Kente gold / Zulu amber        */
+  --espresso:#2C1810;  /* Rich dark earth                */
+  --cream:   #FAF0E6;  /* Warm sand / linen              */
+  --background: #FAF0E6;
+  --foreground:  #2C1810;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: #ffffff;
+  color: #1c1008;
+  font-family: "Ubuntu", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
+p, li, span, td, th, label, div {
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Ubuntu", system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  /* No color override — let Tailwind/inline styles control color per context */
+}
+
+/* Sankofa Display used only for the brand logo wordmark */
+.font-brand {
+  font-family: "Sankofa Display", "Ubuntu", system-ui, sans-serif;
+}
+
+/* Ensure muted helper text is still legible */
+.text-muted {
+  color: #5a4a3a;
+}
+
+/* ─── Primary gradient (terracotta → espresso) ─────────────────────────── */
+.btn-primary {
+  background: linear-gradient(135deg, #8B3A0F, #C4622D);
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ─── Hero gradient (espresso earth → clay → forest) ───────────────────── */
 .gradient-hero {
-  background: linear-gradient(135deg, #1e3a5f 0%, #2d6a4f 100%);
+  background: linear-gradient(135deg, #2C1810 0%, #8B3A0F 55%, #2D5A1B 100%);
 }
 
+/* Hero headings — always white, with a subtle shadow for legibility */
+.gradient-hero h1,
+.gradient-hero h2 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* Hero body text — crisp white */
+.gradient-hero p {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ─── Subtle warm-cream card gradient ──────────────────────────────────── */
 .gradient-card {
-  background: linear-gradient(135deg, #f0f9ff 0%, #e8f5e9 100%);
+  background: linear-gradient(135deg, #fdf6ec 0%, #fef3e2 100%);
 }
 
+/* ─── Shared utilities ──────────────────────────────────────────────────── */
 .card-hover {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 40px rgba(44, 24, 16, 0.10);
 }
 
 .nav-link {
   transition: color 0.2s ease;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #1e3a5f, #2d6a4f);
-  transition: opacity 0.2s ease, transform 0.1s ease;
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
 .star-filled {
-  color: #f59e0b;
+  color: #D4940A;
 }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
+/* ─── African geometric accent border ──────────────────────────────────── */
+.african-border {
+  border-top: 4px solid;
+  border-image: linear-gradient(90deg, #C4622D, #D4940A, #2D5A1B) 1;
+}
+
+/* ─── Pattern overlay (subtle kente-inspired dot grid) ─────────────────── */
+.pattern-overlay {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
 }

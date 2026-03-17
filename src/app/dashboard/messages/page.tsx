@@ -54,7 +54,7 @@ const messagesByConvo: Record<number, Array<{ text: string; from: "me" | "them";
     { text: "Could we adjust this Saturday's hours to 10am?", from: "them", time: "Yesterday 18:30" },
   ],
   3: [
-    { text: "Welcome to AUSI Services! We've verified your account.", from: "them", time: "Mon 09:00" },
+    { text: "Welcome to AUSI Signature Staffing! We've verified your account.", from: "them", time: "Mon 09:00" },
     { text: "Your verification is complete! You're all set.", from: "them", time: "Mon 09:02" },
     { text: "Thank you so much!", from: "me", time: "Mon 10:15", read: true },
   ],
@@ -77,11 +77,11 @@ export default function MessagesPage() {
             <div className="px-4 py-4 border-b border-gray-50">
               <h2 className="font-bold text-gray-900 mb-3">Messages</h2>
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-600" />
                 <input
                   type="text"
                   placeholder="Search conversations..."
-                  className="w-full pl-9 pr-3 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full pl-9 pr-3 py-2 bg-gray-50 border border-gray-100 rounded-xl text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-600"
                 />
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function MessagesPage() {
                   onClick={() => setActiveConvo(c.id)}
                   className={cn(
                     "w-full px-4 py-3.5 flex items-start gap-3 text-left hover:bg-gray-50 transition-colors",
-                    activeConvo === c.id && "bg-emerald-50"
+                    activeConvo === c.id && "bg-orange-50"
                   )}
                 >
                   <div className="relative flex-shrink-0">
@@ -106,12 +106,12 @@ export default function MessagesPage() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
                       <span className="font-semibold text-gray-900 text-sm">{c.name}</span>
-                      <span className="text-xs text-gray-400">{c.time}</span>
+                      <span className="text-xs text-gray-600">{c.time}</span>
                     </div>
-                    <p className="text-xs text-gray-500 truncate mt-0.5">{c.lastMessage}</p>
+                    <p className="text-xs text-gray-700 truncate mt-0.5">{c.lastMessage}</p>
                   </div>
                   {c.unread > 0 && (
-                    <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                    <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
                       {c.unread}
                     </div>
                   )}
@@ -135,19 +135,19 @@ export default function MessagesPage() {
                 </div>
                 <div>
                   <div className="font-bold text-gray-900">{active.name}</div>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-gray-700">
                     {active.online ? "Online now" : "Last seen recently"} · {active.role}
                   </div>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <button className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-50 rounded-xl transition-colors">
+                <button className="p-2 text-gray-600 hover:text-gray-600 hover:bg-gray-50 rounded-xl transition-colors">
                   <Phone className="w-5 h-5" />
                 </button>
-                <button className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-50 rounded-xl transition-colors">
+                <button className="p-2 text-gray-600 hover:text-gray-600 hover:bg-gray-50 rounded-xl transition-colors">
                   <Video className="w-5 h-5" />
                 </button>
-                <button className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-50 rounded-xl transition-colors">
+                <button className="p-2 text-gray-600 hover:text-gray-600 hover:bg-gray-50 rounded-xl transition-colors">
                   <MoreHorizontal className="w-5 h-5" />
                 </button>
               </div>
@@ -173,7 +173,7 @@ export default function MessagesPage() {
                     <p>{msg.text}</p>
                     <div className={cn(
                       "flex items-center justify-end gap-1 mt-1",
-                      msg.from === "me" ? "text-white/60" : "text-gray-400"
+                      msg.from === "me" ? "text-white/80" : "text-gray-600"
                     )}>
                       <span className="text-xs">{msg.time}</span>
                       {msg.from === "me" && msg.read && <Check className="w-3 h-3" />}
@@ -196,7 +196,7 @@ export default function MessagesPage() {
                 <button
                   className={cn(
                     "w-9 h-9 rounded-xl flex items-center justify-center transition-colors",
-                    draft ? "btn-primary text-white" : "bg-gray-200 text-gray-400"
+                    draft ? "btn-primary text-white" : "bg-gray-200 text-gray-600"
                   )}
                 >
                   <Send className="w-4 h-4" />
